@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='fhir-client.js'></script>
+    <script>
+    var smart = new FHIR.client({
+      serviceUrl: 'https://open-ic.epic.com/FHIR/api/FHIR/DSTU2',
+      auth: {
+        type: 'none'
+      }
+    });
+
+    smart.api.search({
+      type: "Observation",
+      query: {
+        patient: "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+        code: '8310-5'
+      }
+    }).then(function(r){
+       console.log(JSON.stringify(r, null, 2));
+    });
+    </script>
+  </head>
+  <body>See JS console for results...</body>
+</html>
